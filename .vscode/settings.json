@@ -1,0 +1,11 @@
+{
+    "cmake.configureSettings": {
+        "CMAKE_PREFIX_PATH": "C:/msys64/ucrt64"
+    },
+    "cmake.configureEnvironment": {
+        "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+    },
+    "cmake.environment": {
+        "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+    }
+}
