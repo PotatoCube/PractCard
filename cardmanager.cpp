@@ -85,3 +85,18 @@ int CardManager::getRandomCardIndex() {
     }
     return 0;
 }
+
+void CardManager::markCardCorrect(size_t index) {
+    if (index < cards.size()) {
+        cards[index].markCorrect();
+        saveToFile(); // Сразу сохраняем обновленный счет в words.txt
+    }
+}
+
+void CardManager::markCardIncorrect(size_t index) {
+    if (index < cards.size()) {
+        cards[index].markIncorrect();
+        saveToFile(); // Сразу сохраняем обновленный счет в words.txt
+    }
+}
+

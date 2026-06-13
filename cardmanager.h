@@ -13,6 +13,9 @@ private:
 public:
     CardManager(std::string file = "words.txt");
     
+    void markCardCorrect(size_t index);
+    void markCardIncorrect(size_t index);
+
     void loadFromFile();
     void saveToFile();
     

@@ -204,30 +204,26 @@ void MainWindow::onTrainCheck() {
 }
 
 void MainWindow::onTrainCorrect() {
-    manager.loadFromFile(); // Синхронизируем на случай изменений
-    auto cards = manager.getCards();
-    cards[currentTrainingIndex].markCorrect();
-    
-    // Перезаписываем менеджер и файл
-    manager.updateCard(currentTrainingIndex, cards[currentTrainingIndex].getUnknown(), cards[currentTrainingIndex].getTranslation());
-    // Принудительно вызываем маркеры изменений счета внутренней логики
-    std::string unk = cards[currentTrainingIndex].getUnknown();
-    std::string trans = cards[currentTrainingIndex].getTranslation();
-    manager.deleteCard(currentTrainingIndex);
-    // Для простоты реализации без перегрузки менеджера напрямую внесем обновленные данные в файл
-    manager.addCard(unk, trans); 
-    manager.loadFromFile(); 
-
-    sessionCorrect++;
-    sessionTotal++;
-    trainSessionStatLabel->setText(QString("Сессия: Вспомнили %1 из %2").arg(sessionCorrect).arg(sessionTotal));
-    nextTrainingCard();
+    if (currentTrainingIndex != -1) {
+        // Вызываем новый правильный метод менеджера
+        manager.markCardCorrect(currentTrainingIndex);
+        
+        sessionCorrect++;
+        sessionTotal++;
+        trainSessionStatLabel->setText(QString("Сессия: Вспомнили %1 из %2").arg(sessionCorrect).arg(sessionTotal));
+        nextTrainingCard();
+    }
 }
 
 void MainWindow::onTrainIncorrect() {
-    sessionTotal++;
-    trainSessionStatLabel->setText(QString("Сессия: Вспомнили %1 из %2").arg(sessionCorrect).arg(sessionTotal));
-    nextTrainingCard();
+    if (currentTrainingIndex != -1) {
+        // Вызываем новый правильный метод менеджера
+        manager.markCardIncorrect(currentTrainingIndex);
+        
+        sessionTotal++;
+        trainSessionStatLabel->setText(QString("Сессия: Вспомнили %1 из %2").arg(sessionCorrect).arg(sessionTotal));
+        nextTrainingCard();
+    }
 }
 
 // СЛОТЫ НАВИГАЦИИ
