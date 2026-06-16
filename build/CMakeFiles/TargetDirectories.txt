@@ -1,5 +1,0 @@
-C:/vuzuz/PractCard/PractCard/build/CMakeFiles/FlashcardsApp.dir
-C:/vuzuz/PractCard/PractCard/build/CMakeFiles/edit_cache.dir
-C:/vuzuz/PractCard/PractCard/build/CMakeFiles/rebuild_cache.dir
-C:/vuzuz/PractCard/PractCard/build/CMakeFiles/FlashcardsApp_autogen_timestamp_deps.dir
-C:/vuzuz/PractCard/PractCard/build/CMakeFiles/FlashcardsApp_autogen.dir
